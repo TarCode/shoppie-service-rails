@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Lists controller
 class ListsController < ApplicationController
   before_action :set_list, only: :destroy
   # GET /lists
@@ -6,7 +9,7 @@ class ListsController < ApplicationController
     render json: ListsSerializer.new(@lists).as_json
   end
 
-  # POST /list
+  # POST /lists
   def create
     @list = List.create(list_params)
     if @list.save
@@ -25,11 +28,10 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.permit(:name)
-    params.permit(:userId)
+    params.permit(:name, :userId)
   end
 
   def set_list
-    @list = list.find(params[:id])
+    @list = List.find(params[:id])
   end
 end

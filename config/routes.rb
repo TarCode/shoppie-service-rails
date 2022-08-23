@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :lists, only: %i[index create destroy]
+  resources :items, only: %i[index create destroy]
 end

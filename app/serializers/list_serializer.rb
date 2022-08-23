@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# List serializer
 class ListSerializer
   def initialize(list)
     @list = list
@@ -5,7 +8,7 @@ class ListSerializer
 
   def as_json
     {
-      id: list.id,
+      id: list.id.to_s,
       name: list.name,
       userId: list.userId
     }
