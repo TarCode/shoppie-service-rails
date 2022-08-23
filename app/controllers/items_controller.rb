@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.permit(:name, :userId)
+    params.permit(:name, :list, :userId)
   end
 
   def set_item
