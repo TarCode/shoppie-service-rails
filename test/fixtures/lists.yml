@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: list-1
-  userId: user-1
+  name: MyString
+  user: one
 
 two:
-  name: list-2
-  userId: user-2
+  name: MyString
+  user: two

@@ -2,6 +2,7 @@
 
 # Items controller
 class ItemsController < ApplicationController
+  before_action :authorize_request
   before_action :set_item, only: :destroy
   # GET /items
   def index

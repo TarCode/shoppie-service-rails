@@ -3,9 +3,9 @@
 one:
   name: MyString
   list: one
-  userId: MyString
+  user: one
 
 two:
   name: MyString
   list: two
-  userId: MyString
+  user: two
