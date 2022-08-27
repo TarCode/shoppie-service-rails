@@ -10,7 +10,7 @@ class ListSerializer
     {
       id: list.id.to_s,
       name: list.name,
-      userId: list.userId
+      user: list.user._id
     }
   end
 

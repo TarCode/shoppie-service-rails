@@ -6,7 +6,7 @@ class ListsController < ApplicationController
   before_action :set_list, only: :destroy
   # GET /lists
   def index
-    @lists = List.all
+    @lists = List.where(user: @current_user)
     render json: ListsSerializer.new(@lists).as_json
   end
 
@@ -29,7 +29,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.permit(:name, :userId)
+    params.permit(:name, :user)
   end
 
   def set_list

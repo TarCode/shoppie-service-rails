@@ -11,7 +11,7 @@ class ItemsSerializer
       {
         id: item.id.to_s,
         name: item.name,
-        userId: item.userId,
+        user: item.user._id,
         list: item.list.id.to_s
       }
     end

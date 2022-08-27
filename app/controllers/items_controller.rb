@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: :destroy
   # GET /items
   def index
-    @items = Item.all
+    @items = Item.where(user: @current_user)
     render json: ItemsSerializer.new(@items).as_json
   end
 
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.permit(:name, :list, :userId)
+    params.permit(:name, :list, :user)
   end
 
   def set_item
