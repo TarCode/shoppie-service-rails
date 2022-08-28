@@ -4,8 +4,7 @@ class AuthenticationController < ApplicationController
   # POST /auth/login
   def login
     @user = User.find_by(email: params[:email])
-    # TODO: Don't store passwords as plain text => use bcrypt
-    if @user.password == params[:password]
+    if @user.authenticate(params[:password])
       token = JsonWebToken.encode(user_id: @user.id.to_s)
       time = Time.now + 24.hours.to_i
       render json: { token:, exp: time.strftime('%m-%d-%Y %H:%M'),
