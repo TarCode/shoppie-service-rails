@@ -11,7 +11,7 @@ class ListsSerializer
       {
         id: list.id.to_s,
         name: list.name,
-        user: list.user._id
+        userId: list.user.id.to_s
       }
     end
   end
