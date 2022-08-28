@@ -12,7 +12,7 @@ class ListsController < ApplicationController
 
   # POST /lists
   def create
-    @list = List.create(list_params)
+    @list = List.create(name: list_params[:name], user: @current_user)
     if @list.save
       render json: ListSerializer.new(@list).as_json, status: :created
     else
@@ -29,7 +29,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.permit(:name, :user)
+    params.permit(:name)
   end
 
   def set_list

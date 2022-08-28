@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :items, only: %i[index create destroy]
 
   resources :users, param: :_username
+
+  get '/items/list/:id', to: 'items#items_by_list'
   post '/auth/login', to: 'authentication#login'
   get '/*a', to: 'application#not_found'
 end
