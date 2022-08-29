@@ -11,7 +11,8 @@ class ListsSerializer
       {
         id: list.id.to_s,
         name: list.name,
-        userId: list.user.id.to_s
+        userId: list.user.id.to_s,
+        createdAt: list.created_at
       }
     end
   end

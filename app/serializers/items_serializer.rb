@@ -12,7 +12,8 @@ class ItemsSerializer
         id: item.id.to_s,
         name: item.name,
         userId: item.user.id.to_s,
-        listId: item.list.id.to_s
+        listId: item.list.id.to_s,
+        createdAt: item.created_at
       }
     end
   end
