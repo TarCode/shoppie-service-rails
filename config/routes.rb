@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   resources :lists, only: %i[index create destroy]
   resources :items, only: %i[index create destroy]
 
-  resources :users, param: :_username
+  resources :users, param: :id
 
   get '/items/list/:id', to: 'items#items_by_list'
-  post '/auth/login', to: 'authentication#login'
+  post '/users/login', to: 'authentication#login'
+  post '/users/register', to: 'users#register'
   get '/*a', to: 'application#not_found'
 end

@@ -10,8 +10,10 @@ class AuthenticationController < ApplicationController
       render json: { token:, exp: time.strftime('%m-%d-%Y %H:%M'),
                      email: @user.email }, status: :ok
     else
-      render json: { error: 'unauthorized' }, status: :unauthorized
+      render json: { error: 'Invalid credentials' }, status: :unauthorized
     end
+  rescue Mongoid::Errors::DocumentNotFound
+    render json: { error: 'Invalid credentials' }, status: :not_found
   end
 
   private

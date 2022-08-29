@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.create(
       name: item_params[:name],
-      list: item_params[:list],
+      list: item_params[:listId],
       user: @current_user
     )
     if @item.save
@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.permit(:name, :list)
+    params.permit(:name, :listId)
   end
 
   def set_item
