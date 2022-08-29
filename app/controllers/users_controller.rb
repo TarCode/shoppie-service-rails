@@ -11,7 +11,10 @@ class UsersController < ApplicationController
   def register
     @user = User.new(user_params)
     if @user.save
-      render json: @user, status: :created
+      token = JsonWebToken.encode(user_id: @user.id.to_s)
+      time = Time.now + 24.hours.to_i
+      render json: { token:, exp: time.strftime('%m-%d-%Y %H:%M'),
+                     email: @user.email }, status: :ok
     else
       render json: { error: @user.errors.full_messages },
              status: :unprocessable_entity
