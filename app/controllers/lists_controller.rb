@@ -20,6 +20,11 @@ class ListsController < ApplicationController
     end
   end
 
+  def show
+    @list = List.find(params[:id])
+    render json: @list, status: :ok
+  end
+
   # DELETE /lists/:id
   def destroy
     @list.destroy
