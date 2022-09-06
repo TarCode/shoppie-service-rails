@@ -21,10 +21,4 @@ test:
 production:
   clients:
     default:
-      database: shoppie_service_rails_production
-      hosts:
-        - <%= ENV.fetch("MONGODB_URI") %>
-      options:
-        read:
-          mode: :primary
-        max_pool_size: 1
+      uri: <%= ENV.fetch("MONGODB_URI") %>
